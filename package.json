@@ -1,0 +1,19 @@
+{
+  "name": "kenobi-probe",
+  "version": "0.0.0",
+  "description": "kek",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dasilvacontin/kenobi-probe.git"
+  },
+  "author": "David da Silva Contín <dasilvacontin@gmail.com> (http://dasilvacont.in/)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dasilvacontin/kenobi-probe/issues"
+  },
+  "homepage": "https://github.com/dasilvacontin/kenobi-probe"
+}

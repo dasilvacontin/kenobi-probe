@@ -49,21 +49,40 @@ app.get('/connectPocket/:aid', function (req, res) {
 });
 
 app.get('/linkedPocket/:aid', function (req, res) {
+  var json = { code: codeForAid[req.aid] };
   request.post({
     url: config.BACKEND_URL + '/linkPocket/',
-    headers : { Authorization: req.aid },
-    json: { code: codeForAid[req.aid] }
+    headers : {
+      Authorization: req.aid,
+      'Content-Type': 'application/json; charset=UTF-8'
+    },
+    body: JSON.stringify(json)
   });
-  delete codeForAid[req.aid];
+  debug('Sending...');
+  debug(json);
+  setTimeout(function () {
+    delete codeForAid[req.aid];
+  }, 1000);
   res.render('linkedPocket');
 });
 
 app.get('/reader', function (req, res) {
-  var obj = JSON.parse(new Buffer(req.params.json, 'base64'));
+  debug('reader');
   res.render('reader', {
-    url: obj.url,
-    aid: obj.aid,
-    item_id: obj.item_id
+    url: req.query.url,
+    aid: req.query.aid,
+    item_id: req.query.item_id
+  });
+
+  var json = { item_id: req.query.item_id };
+  // TO-DO: Mark as read when scrolled to the end instead of inmediately
+  request.post({
+    url: config.BACKEND_URL + '/readLink/',
+    headers : {
+      Authorization: req.queryaid,
+      'Content-Type': 'application/json; charset=UTF-8'
+    },
+    body: JSON.stringify(json)
   });
 });
 

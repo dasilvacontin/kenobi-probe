@@ -1,0 +1,27 @@
+@import (http://fonts.googleapis.com/css?family=Montserrat:700);
+
+body {
+	background-color: #9B59B6;
+	color: white;
+	font-family: 'Montserrat', sans-serif;
+	text-transform: uppercase;
+	font-weight: 700;
+}
+
+p, a {
+	margin: 20px;
+	display: block;
+}
+
+a {
+	color: white;
+	padding: 20px;
+	border: 1px solid white;
+	text-decoration: none;
+	border-radius: 5px;
+}
+
+a:hover {
+	background-color: white;
+	color: #9B59B6;
+}

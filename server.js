@@ -57,6 +57,8 @@ app.get('/linkedPocket/:aid', function (req, res) {
       'Content-Type': 'application/json; charset=UTF-8'
     },
     body: JSON.stringify(json)
+  }, function (err) {
+    if (err) console.log('KEKKKKKKK linkPocket req failed');
   });
   debug('Sending...');
   debug(json);
@@ -68,18 +70,21 @@ app.get('/linkedPocket/:aid', function (req, res) {
 
 app.get('/reader', function (req, res) {
   debug('reader');
+  /*
   res.render('reader', {
     url: req.query.url,
     aid: req.query.aid,
     item_id: req.query.item_id
   });
+  */
+  res.redirect(req.query.url);
 
   var json = { item_id: req.query.item_id };
   // TO-DO: Mark as read when scrolled to the end instead of inmediately
   request.post({
     url: config.BACKEND_URL + '/readLink/',
     headers : {
-      Authorization: req.queryaid,
+      Authorization: req.query.aid,
       'Content-Type': 'application/json; charset=UTF-8'
     },
     body: JSON.stringify(json)

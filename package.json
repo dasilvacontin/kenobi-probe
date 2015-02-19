@@ -15,5 +15,12 @@
   "bugs": {
     "url": "https://github.com/dasilvacontin/kenobi-probe/issues"
   },
-  "homepage": "https://github.com/dasilvacontin/kenobi-probe"
+  "homepage": "https://github.com/dasilvacontin/kenobi-probe",
+  "dependencies": {
+    "debug": "^2.1.1",
+    "ejs": "^2.2.4",
+    "express": "^4.11.2",
+    "morgan": "^1.5.1",
+    "request": "^2.53.0"
+  }
 }
